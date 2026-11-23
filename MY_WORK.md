@@ -32,17 +32,17 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [TURKI MOHAMMED ALANAZI] |
+| **Student ID** | [444052409] |
+| **University Email** | [444052409]@std.psau.edu.sa |
+| **GitHub Username** | [444052409-beep] |
+| **Repository Link** | [https://github.com/444052409-beep/OS-Assignment3-Turki-Alanazi] |
  
 ---
 
 ## 🎥 Video Link
 
-**Video Link**: [Paste your video link here]
+**Video Link**: [https://drive.google.com/file/d/19VZ86vIvPx2Ezk9SC7TqGHdAwZK_YaKz/view?usp=sharing]
 
 > ⚠️ **WARNING:** The video must be **publicly accessible** ("Anyone with the link can view") on **Google Drive**, **YouTube (Unlisted or Public)** or any other cloud file-sharing system. A private, restricted or broken link counts as a **missing video (-1 mark)**.
 >
@@ -61,7 +61,7 @@
 | 2 | Feature 1: Mutex lock on the ready queue, **commit** | Code | Part 2 (0.25) |
 | 3 | Feature 2: Mutex lock(s) on the shared statistics, **commit** | Code | Part 2 (0.25) |
 | 4 | Feature 3: Counting semaphore instead of busy waiting, **commit** | Code | Part 2 (0.5) |
-| 5 | Development Log (5+ entries, different dates) | This file, Part A | Part 3 (0.5) |
+| 5 |  (5+ entries, different dates) | This file, Part A | Part 3 (0.5) |
 | 6 | Reflection (4 questions) | This file, Part B | Part 3 (0.5) |
 | 7 | Technical Answers (4 questions) | This file, Part C | Part 3 (0.5) |
 | 8 | Record the video, upload it, paste the link above | Video + this file | Part 4 (1.5) |
@@ -79,7 +79,7 @@
 
 | # | Commit | Example message |
 |:-:|--------|-----------------|
-| 1 | Student ID set | `Set my student ID: 441234567` |
+| 1 | Student ID set | `Set my student ID: 444052409` |
 | 2 | Feature 1: Ready queue lock | `Feature 1: Protected the ready queue with a ReentrantLock` |
 | 3 | Feature 2: Statistics locks | `Feature 2: Added locks to the shared statistics counters` |
 | 4 | Feature 3: Semaphore | `Feature 3: Replaced busy waiting with a counting semaphore` |
@@ -240,7 +240,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I learned that synchronization is important when multiple threads use shared data. Without synchronization, race conditions can happen. I used ReentrantLock to protect the ready queue and shared statistics. I learned that mutual exclusion allows only one thread to access a critical section at a time. I also used a Semaphore to avoid busy waiting. After fixing the synchronization problems, the program showed consistent results.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -248,7 +248,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[The most challenging part was understanding how multiple threads work together. At first, I had problems with the locks and the ready queue. Some errors appeared when I tried to run the program. I had to check the code and fix the mistakes step by step. Using the Semaphore was also challenging because I needed to understand how threads wait and wake up. In the end, I fixed the errors and the program worked correctly.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -256,7 +256,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I overcame the challenges by working step by step. First, I read the instructions and checked the code. When errors appeared, I looked at the error messages to find the problem. I fixed the mistakes and tested the program again. I also learned how to use ReentrantLock and Semaphore correctly. Finally, I ran the program and checked that the results were consistent.]
 
 ## Question 4: Where can synchronization concepts be applied in real-world applications?
 
@@ -264,7 +264,7 @@
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Synchronization is important in many real-world applications. Banks use it to protect account balances when money is transferred. Ticket booking systems use synchronization to prevent selling the same seat twice. Operating systems use it to manage shared resources between processes. It is also useful in databases when multiple users update information at the same time. These examples show how synchronization helps prevent errors and keeps data consistent.]
 
 ### Optional: What would you like to learn more about?
 
@@ -298,7 +298,7 @@
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In the original program, a race condition happened because multiple CPU threads accessed the shared contextSwitchCount variable at the same time. For example, CPU-1 and CPU-2 could both read the value 12 before updating it. Both threads could then write 13 instead of the correct value 14, causing a lost update. This problem can happen without RaceWindow.pause() because thread execution can overlap naturally. After using ReentrantLock, the shared statistics became consistent.]
 
 Verification block of the **original starter**:
 ```
@@ -321,7 +321,7 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[I used ReentrantLock to protect the shared ready queue and statistics. The ready queue lock protects the list and map when threads add or remove processes. I used a separate statistics lock to protect the shared counters during updates. For example, contextSwitchCount must be updated safely so no increments are lost. Using separate locks reduces unnecessary waiting, while using one lock for everything could slow down the program. Deadlock can happen if threads acquire multiple locks in different orders.]
 
 | Critical section (variable / method) | Lock used | Why it needs protection |
 |---|---|---|
@@ -336,7 +336,7 @@ Verification block of **my final version**:
 
 **Your Answer:** *(3-5 sentences)*
 
-[Write your answer here.]
+[In the original program, busyWaitingPolls increased because the CPU threads repeatedly checked an empty queue. After using a Semaphore, the final output showed busyWaitingPolls equal to 0. The readyCount.acquire() method makes a CPU thread wait until a process becomes available. The readyCount.release() method signals that another process has been added to the queue. This avoids wasting CPU time on repeated checks. When the last process finishes, the waiting CPU threads must be awakened so the program can terminate correctly.]
 
 ## Question 4: Classical Problems and Deadlock
 
@@ -345,7 +345,7 @@ Verification block of **my final version**:
 > 💡 **TIP:** Recall the bounded-buffer solution of the slides (`empty`, `full`, `mutex`) and the order of `wait()` calls in the producer and the consumer. For the deadlock, think about a producer that holds the mutex while waiting for a free slot that only a consumer (who needs the mutex) can create.
 
 **Your Answer:** *(3-5 sentences)*
-
+In my program, the producer is the thread that adds processes to the ready queue, and the consumers are the CPU worker threads. The semaphore readyCount starts at 0 because the queue is initially empty. The queueLock protects the shared ready queue, while readyCount signals when a process becomes available. A deadlock could happen if a thread holds queueLock while waiting for a semaphore that another thread needs the same lock to release. To prevent this, the CPU threads wait on readyCount before acquiring queueLock.
 **Classical problem and roles**:
 [Name the problem; who is the producer, who is the consumer?]
 
@@ -358,14 +358,12 @@ Verification block of **my final version**:
 ## Summary
 
 **Key concepts I understood through these questions:**
-1.
-2.
-3.
-
+1. I learned how ReentrantLock protects shared data.
+2. I understood how Semaphore prevents busy waiting.
+3. I learned how synchronization prevents race conditions.
 **Concepts I need to study more:**
-1.
-2.
-
+1. Deadlock and how to prevent it.
+2. Advanced synchronization techniques.
 ---
 
 # ✅ Final Checklist (complete before submitting)
@@ -404,8 +402,7 @@ Verification block of **my final version**:
 **Video**
 - [ ] 2-3 minutes long, named `StudentID_Assignment3_Demo.mp4`
 - [ ] Shows your name, ID, repository, 3 features (and your lock granularity choice), IDE execution with the verification block, one synchronization concept, and commit history
-- [ ] Link is **public** (tested in an incognito window) and pasted in the **Video Link** section above
-
+- [ ] Link is **public** (tested in an incognito window) and pasted in the **Video Link** 
 **Blackboard**
 - [ ] Submit **only** the link to your public GitHub repository
 
